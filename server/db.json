@@ -1,0 +1,190 @@
+{
+  "rooms": [
+    {
+      "id": "sc1",
+      "name": "อาคาร SC.01",
+      "category": "คณะวิทยาศาสตร์",
+      "description": "อาคารเรียน นิติวิทยาศาสตร์",
+      "createdAt": "2025-10-17T14:25:27.212Z"
+    },
+    {
+      "id": "sc2",
+      "name": "ตึกกลม SC.02",
+      "category": "คณะวิทยาศาสตร์",
+      "description": "อาคารเรียนรวม",
+      "createdAt": "2025-10-17T14:25:27.218Z"
+    },
+    {
+      "id": "sc3",
+      "name": "อาคาร SC.03",
+      "category": "คณะวิทยาศาสตร์",
+      "description": "อาคารเรียน สาขาวิชาชีววิทยา",
+      "createdAt": "2025-10-17T14:25:27.218Z"
+    },
+    {
+      "id": "sc4",
+      "name": "อาคาร SC.04",
+      "category": "คณะวิทยาศาสตร์",
+      "description": "อาคารเรียน สาขาวิชาเคมี",
+      "createdAt": "2025-10-17T14:25:27.219Z"
+    },
+    {
+      "id": "sc5",
+      "name": "อาคาร SC.05",
+      "category": "คณะวิทยาศาสตร์",
+      "description": "สโมสรนักศึกษาคณะวิทยาศาสตร์",
+      "createdAt": "2025-10-17T14:25:27.219Z"
+    },
+    {
+      "id": "sc6",
+      "name": "อาคาร SC.06",
+      "category": "คณะวิทยาศาสตร์",
+      "description": "อาคารเรียน สาขาวิชาสถิติ สำนักงานคณบดี",
+      "createdAt": "2025-10-17T14:25:27.219Z"
+    },
+    {
+      "id": "sc7",
+      "name": "อาคาร SC.07",
+      "category": "คณะวิทยาศาสตร์",
+      "description": "อาคารเรียน สาขาวิชาจุลชีววิทยา ชีวเคมี คณิตศาสตร์",
+      "createdAt": "2025-10-17T14:25:27.219Z"
+    },
+    {
+      "id": "sc8",
+      "name": "อาคาร SC.08",
+      "category": "คณะวิทยาศาสตร์",
+      "description": "อาคารเรียน สาขาวิชาวิทยาศาสตร์สิ่งแวดล้อม",
+      "createdAt": "2025-10-17T14:25:27.219Z"
+    },
+    {
+      "id": "sc9",
+      "name": "อาคารวิทยวิภาส SC.09",
+      "category": "คณะวิทยาศาสตร์",
+      "description": "อาคารเรียน สาขาวิชาฟิสิกส์ และ คณะวิทยาลัยการคอมพิวเตอร์",
+      "createdAt": "2025-10-17T14:25:27.219Z"
+    },
+    {
+      "id": "h8",
+      "name": "หอพักสวัสดิการนักศึกษา (วรเรสซิเดนซ์)",
+      "category": "หอพักนักศึกษา",
+      "description": "หอพักนักศึกษา อาคาร 8 หลัง",
+      "createdAt": "2025-10-17T14:25:27.219Z"
+    },
+    {
+      "id": "h9",
+      "name": "หอพักนพรัตน์",
+      "category": "หอพักนักศึกษา",
+      "description": "หอพักนักศึกษา อาคาร 9 หลัง",
+      "createdAt": "2025-10-17T14:25:27.219Z"
+    },
+    {
+      "id": "h_in",
+      "name": "หอพักวรอินเตอร์",
+      "category": "หอพักนักศึกษา",
+      "description": "หอพักนักศึกษา  4 หลัง (วรอินเตอร์)",
+      "createdAt": "2025-10-17T14:25:27.219Z"
+    }
+  ],
+  "notes": [
+    {
+      "id": "0o18iqNmWQ",
+      "roomId": "sc2",
+      "type": "image",
+      "fileUrl": "http://10.224.109.120:4000/uploads/1760779073091-Nx2nMW.png",
+      "x": 516,
+      "y": 154,
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-18T09:17:53.208Z"
+    },
+    {
+      "id": "CY85woM3eN",
+      "roomId": "sc7",
+      "type": "text",
+      "content": "",
+      "x": 478.5933325826194,
+      "y": 221.4053038858264,
+      "align": "left",
+      "color": "color-blue",
+      "author": "anon",
+      "timestamp": "2025-10-18T13:21:39.990Z"
+    },
+    {
+      "id": "BipRXH9qF-",
+      "roomId": "sc1",
+      "type": "text",
+      "content": "",
+      "x": 504,
+      "y": 255,
+      "align": "left",
+      "color": "color-pink",
+      "author": "anon",
+      "timestamp": "2025-10-18T13:26:30.549Z"
+    },
+    {
+      "id": "WzmrcaSukO",
+      "roomId": "sc1",
+      "type": "text",
+      "content": "ไง",
+      "x": 703,
+      "y": 490,
+      "align": "center",
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-18T13:26:35.365Z"
+    },
+    {
+      "id": "z5MQcOJonZ",
+      "roomId": "sc1",
+      "type": "text",
+      "content": "สวัสดี",
+      "x": 518,
+      "y": 372,
+      "align": "center",
+      "color": "color-blue",
+      "author": "anon",
+      "timestamp": "2025-10-18T13:26:40.109Z"
+    },
+    {
+      "id": "4q-eyGVBSI",
+      "roomId": "sc1",
+      "type": "image",
+      "fileUrl": "http://10.224.109.120:4000/uploads/1760794035676-Zovu7a.jpg",
+      "x": 750,
+      "y": 107,
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-18T13:27:15.686Z"
+    },
+    {
+      "id": "f05DiKAirc",
+      "roomId": "sc1",
+      "type": "text",
+      "content": "🎇",
+      "x": 1273,
+      "y": 411,
+      "align": "center",
+      "color": "color-blue",
+      "author": "anon",
+      "timestamp": "2025-10-18T13:28:42.922Z"
+    }
+  ],
+  "boards": [],
+  "posts": [
+    {
+      "id": "sRAwQRjPpL",
+      "title": "dddd",
+      "author": "ddd",
+      "description": "กกก",
+      "image": "http://10.224.109.120:4000/uploads/1760794054398-fKbW6R.jpg",
+      "contactLink": "https://www.facebook.com/share/p/1EZDD8jK9S/",
+      "category": "ทั่วไป",
+      "roomId": "sc1",
+      "position": {
+        "x": 121,
+        "y": 150
+      },
+      "createdAt": "2025-10-18T13:27:34.402Z"
+    }
+  ]
+}
