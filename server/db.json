@@ -87,17 +87,6 @@
   ],
   "notes": [
     {
-      "id": "0o18iqNmWQ",
-      "roomId": "sc2",
-      "type": "image",
-      "fileUrl": "http://10.224.109.120:4000/uploads/1760779073091-Nx2nMW.png",
-      "x": 516,
-      "y": 154,
-      "color": "color-yellow",
-      "author": "anon",
-      "timestamp": "2025-10-18T09:17:53.208Z"
-    },
-    {
       "id": "CY85woM3eN",
       "roomId": "sc7",
       "type": "text",
@@ -167,24 +156,264 @@
       "color": "color-blue",
       "author": "anon",
       "timestamp": "2025-10-18T13:28:42.922Z"
+    },
+    {
+      "id": "MeYlmPPrtT",
+      "roomId": "sc1",
+      "type": "text",
+      "content": "",
+      "x": 8,
+      "y": 217,
+      "align": "left",
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T02:47:47.674Z"
+    },
+    {
+      "id": "9WHTNVGgS-",
+      "roomId": "sc6",
+      "type": "text",
+      "content": "hello",
+      "x": 10,
+      "y": 178,
+      "align": "center",
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T03:34:40.316Z"
+    },
+    {
+      "id": "qmgnzKZV6q",
+      "roomId": "sc6",
+      "type": "image",
+      "fileUrl": "http://localhost:4000/uploads/1760844916976--Uanv3.png",
+      "x": 95,
+      "y": 348,
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T03:35:17.170Z",
+      "align": "right"
+    },
+    {
+      "id": "Tk9J0pnxWT",
+      "roomId": "sc6",
+      "type": "text",
+      "content": "qrqwr",
+      "x": 177,
+      "y": 289,
+      "align": "left",
+      "color": "color-pink",
+      "author": "anon",
+      "timestamp": "2025-10-19T03:39:34.419Z"
+    },
+    {
+      "id": "77ZA2BXmmw",
+      "roomId": "sc2",
+      "type": "text",
+      "content": "😎",
+      "x": 449,
+      "y": 113,
+      "align": "center",
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T04:43:32.080Z"
+    },
+    {
+      "id": "HMbp5QPTzt",
+      "roomId": "sc2",
+      "type": "text",
+      "content": "#ทัก",
+      "x": 957,
+      "y": 76,
+      "align": "left",
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T04:43:56.611Z"
+    },
+    {
+      "id": "TKLHBTHElM",
+      "roomId": "sc2",
+      "type": "text",
+      "content": "💙",
+      "x": 166,
+      "y": 111,
+      "align": "center",
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T04:46:02.278Z"
+    },
+    {
+      "id": "spILBh3Y4B",
+      "roomId": "sc2",
+      "type": "image",
+      "fileUrl": "http://10.54.56.175:4000/uploads/1760849633510-WBslAt.png",
+      "x": 405,
+      "y": 384,
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T04:53:53.604Z"
+    },
+    {
+      "id": "9OPUo519Dq",
+      "roomId": "sc2",
+      "type": "image",
+      "fileUrl": "http://10.54.56.175:4000/uploads/1760849698197-RQjk8T.png",
+      "x": 1224,
+      "y": 0,
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T04:54:58.256Z"
+    },
+    {
+      "id": "2XBqujGECM",
+      "roomId": "sc2",
+      "type": "image",
+      "fileUrl": "http://10.54.56.175:4000/uploads/1760850158165-WIMAEh.png",
+      "x": 93,
+      "y": 573,
+      "color": "color-pink",
+      "author": "anon",
+      "timestamp": "2025-10-19T05:02:38.320Z"
+    },
+    {
+      "id": "mVhkwops2m",
+      "roomId": "sc3",
+      "type": "text",
+      "content": "",
+      "x": 275,
+      "y": 274,
+      "align": "left",
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T05:05:44.622Z"
+    },
+    {
+      "id": "FRk2jMWdxJ",
+      "roomId": "sc3",
+      "type": "image",
+      "fileUrl": "http://10.54.56.175:4000/uploads/1760850407411-e_zh70.jpg",
+      "x": 431.72059342888485,
+      "y": 311.14590156663934,
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T05:06:47.470Z"
+    },
+    {
+      "id": "5MxSRdLVQD",
+      "roomId": "sc2",
+      "type": "image",
+      "fileUrl": "http://10.54.56.175:4000/uploads/1760850415434-5QeNfa.jpg",
+      "x": 352,
+      "y": 184,
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T05:06:55.824Z"
+    },
+    {
+      "id": "eKpnirI381",
+      "roomId": "sc2",
+      "type": "text",
+      "content": "🏆",
+      "x": 73,
+      "y": 436,
+      "align": "center",
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T05:17:59.630Z"
+    },
+    {
+      "id": "EAYHflW_Io",
+      "roomId": "sc2",
+      "type": "image",
+      "fileUrl": "http://10.54.56.175:4000/uploads/1760851546314-EAYSQs.jpg",
+      "x": 546,
+      "y": 336,
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T05:25:46.354Z"
+    },
+    {
+      "id": "Lve1jwJH25",
+      "roomId": "sc2",
+      "type": "text",
+      "content": "💫",
+      "x": 102,
+      "y": 295,
+      "align": "center",
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T05:29:22.750Z"
+    },
+    {
+      "id": "J-B6TVa91f",
+      "roomId": "sc2",
+      "type": "text",
+      "content": "ฟหกฟกฟหก",
+      "x": 72,
+      "y": 192,
+      "align": "right",
+      "color": "color-yellow",
+      "author": "anon",
+      "timestamp": "2025-10-19T05:29:44.640Z"
+    },
+    {
+      "id": "aUP0xwxESo",
+      "roomId": "sc2",
+      "type": "text",
+      "content": "",
+      "x": 449,
+      "y": 166,
+      "align": "left",
+      "color": "color-green",
+      "author": "anon",
+      "timestamp": "2025-10-19T05:30:41.489Z"
     }
   ],
   "boards": [],
   "posts": [
     {
-      "id": "sRAwQRjPpL",
-      "title": "dddd",
-      "author": "ddd",
-      "description": "กกก",
-      "image": "http://10.224.109.120:4000/uploads/1760794054398-fKbW6R.jpg",
-      "contactLink": "https://www.facebook.com/share/p/1EZDD8jK9S/",
+      "id": "AySlaKGSwS",
+      "title": "2q3eqe",
+      "author": "wqe",
+      "description": "eqeqe",
+      "image": null,
+      "contactLink": "wqeq",
       "category": "ทั่วไป",
-      "roomId": "sc1",
+      "roomId": "sc6",
       "position": {
-        "x": 121,
-        "y": 150
+        "x": 628,
+        "y": 123
       },
-      "createdAt": "2025-10-18T13:27:34.402Z"
+      "createdAt": "2025-10-19T03:37:02.456Z"
+    },
+    {
+      "id": "eBCpP__V5E",
+      "title": "ขายยย",
+      "author": "ดรีม",
+      "description": "ตนนน",
+      "image": null,
+      "contactLink": "www-youtube-com",
+      "category": "ทั่วไป",
+      "roomId": "sc2",
+      "position": {
+        "x": 492,
+        "y": 370
+      },
+      "createdAt": "2025-10-19T05:23:52.042Z"
+    },
+    {
+      "id": "E6wH-g3BJh",
+      "title": "ฟฏฤ",
+      "author": "ฤฆฏฤฏ",
+      "description": "ฆฤฏ",
+      "image": "http://10.54.56.175:4000/uploads/1760851558672-jO-WzU.jpg",
+      "contactLink": "",
+      "category": "ทั่วไป",
+      "roomId": "sc2",
+      "position": {
+        "x": 873,
+        "y": 161
+      },
+      "createdAt": "2025-10-19T05:25:58.741Z"
     }
   ]
 }

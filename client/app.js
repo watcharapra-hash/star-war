@@ -1,7 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  const API_URL = "http://10.224.109.120:4000";
-  const socket = io(API_URL);
+  // ✅ เปลี่ยนเป็น IP Address จริงของคุณ
+  const API_URL = 'http://10.54.56.175:4000';
+  const socket = io('http://10.54.56.175:4000', {
+    transports: ['websocket', 'polling'],
+    reconnection: true,
+    reconnectionAttempts: 5,
+    reconnectionDelay: 1000
+  });
+
+  // ✅ เพิ่ม Connection Monitoring
+  socket.on('connect', () => {
+    console.log('✅ Connected to server:', socket.id);
+    showNotification('✅ เชื่อมต่อกับเซิร์ฟเวอร์สำเร็จ');
+  });
+
+  socket.on('connect_error', (error) => {
+    console.error('❌ Connection error:', error);
+    showNotification('❌ ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้', 5000);
+  });
+
+  socket.on('disconnect', (reason) => {
+    console.log('⚠️ Disconnected:', reason);
+    showNotification('⚠️ การเชื่อมต่อขาดหาย');
+  });
+
+  socket.on('reconnect', (attemptNumber) => {
+    console.log('🔄 Reconnected after', attemptNumber, 'attempts');
+    showNotification('🔄 เชื่อมต่อใหม่สำเร็จ');
+  });
 
   const board = document.getElementById("board");
   const createBtn = document.getElementById("create-note");
@@ -126,6 +153,11 @@ document.addEventListener('DOMContentLoaded', () => {
   async function searchRooms(query = "") {
     try {
       const res = await fetch(`${API_URL}/search-rooms?query=${encodeURIComponent(query)}`);
+      
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      
       const data = await res.json();
 
       roomContainer.innerHTML = "<h3>รายการห้อง</h3>";
@@ -170,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } catch (error) {
       console.error("Error searching rooms:", error);
-      roomContainer.innerHTML += "<p class='error-text'>เกิดข้อผิดพลาดในการโหลดห้อง</p>";
+      roomContainer.innerHTML += "<p class='error-text'>⚠️ ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้<br><small>กรุณาตรวจสอบว่า Backend กำลังทำงานอยู่</small></p>";
     }
   }
 
@@ -273,14 +305,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (res.ok) {
         postModal.style.display = "none";
         postForm.reset();
-        showNotification("สร้างโพสต์สำเร็จ!");
+        showNotification("✅ สร้างโพสต์สำเร็จ!");
       } else {
         const error = await res.json();
         alert("เกิดข้อผิดพลาด: " + (error.error || "ไม่สามารถสร้างโพสต์ได้"));
       }
     } catch (error) {
       console.error("Error creating post:", error);
-      alert("เกิดข้อผิดพลาดในการสร้างโพสต์");
+      alert("❌ เกิดข้อผิดพลาดในการสร้างโพสต์");
     }
   });
 
@@ -512,7 +544,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ✅ แก้ไขส่วน Upload Image - เพิ่ม console.log เพื่อ debug
+  // ✅ Upload Image
   imageInput.addEventListener("change", async (e) => {
     console.log("📸 Image input changed!");
     
@@ -565,8 +597,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const div = document.createElement("div");
     div.className = "note " + (note.color || currentNoteColor);
     div.id = note.id;
-
-    // ✅ แก้ไข: เพิ่ม user-select สำหรับการคลิกและแก้ไข
     div.style.userSelect = 'none';
 
     div.addEventListener("click", (e) => {
@@ -608,7 +638,6 @@ document.addEventListener('DOMContentLoaded', () => {
       contentEl.style.cursor = "text";
       contentEl.style.userSelect = "text";
 
-      // ✅ แก้ไข Double Click Handler
       function enableEditing(e) {
         e.stopPropagation();
         
@@ -626,7 +655,6 @@ document.addEventListener('DOMContentLoaded', () => {
         input.style.resize = "none";
         input.style.fontFamily = "inherit";
 
-        // บันทึกเมื่อ blur
         input.onblur = () => {
           const newText = input.value.trim();
           console.log("💾 Saving text:", newText);
@@ -642,7 +670,6 @@ document.addEventListener('DOMContentLoaded', () => {
           contentEl.ondblclick = enableEditing;
         };
 
-        // Enter = บันทึก
         input.addEventListener("keydown", ev => {
           if (ev.key === "Enter" && !ev.shiftKey) {
             ev.preventDefault();

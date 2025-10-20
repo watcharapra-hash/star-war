@@ -8,6 +8,32 @@ const multer = require("multer");
 const { Low } = require("lowdb");
 const { JSONFile } = require("lowdb/node");
 const { nanoid } = require("nanoid");
+const os = require("os");
+
+// ====== GET LOCAL IP ADDRESS ======
+function getLocalIP() {
+  const interfaces = os.networkInterfaces();
+  for (const name of Object.keys(interfaces)) {
+    for (const iface of interfaces[name]) {
+      if (iface.family === 'IPv4' && !iface.internal) {
+        return iface.address;
+      }
+    }
+  }
+  return 'localhost';
+}
+
+// ====== HELPER FUNCTION FOR DYNAMIC BASE URL ======
+function getBaseUrl(req) {
+  const forwardedHost = req.get('x-forwarded-host');
+  const forwardedProto = req.get('x-forwarded-proto');
+  
+  if (forwardedHost && forwardedProto) {
+    return `${forwardedProto}://${forwardedHost}`;
+  }
+  
+  return `${req.protocol}://${req.get('host')}`;
+}
 
 // ====== DATABASE SETUP ======
 const dbFile = path.join(__dirname, "db.json");
@@ -60,7 +86,14 @@ async function initFixedRooms() {
 
 // ====== EXPRESS SETUP ======
 const app = express();
-app.use(cors({ origin: "*" }));
+
+// ✅ ตั้งค่า CORS ให้รองรับทุก origin
+app.use(cors({ 
+  origin: "*",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"]
+}));
+
 app.use(express.json());
 
 // ====== FILE UPLOADS ======
@@ -82,7 +115,8 @@ const server = http.createServer(app);
 const io = new Server(server, { 
   cors: { 
     origin: "*",
-    methods: ["GET", "POST"]
+    methods: ["GET", "POST"],
+    credentials: true
   },
   transports: ['websocket', 'polling'],
   pingTimeout: 60000,
@@ -103,7 +137,17 @@ function tryRemoveUploadedFile(fileUrl) {
 
 // ====== ROUTES ======
 app.get("/", (req, res) => {
-  res.send("Server is running on 10.224.109.120:4000 🚀");
+  res.json({ 
+    status: "OK", 
+    message: "🚀 Server is running!",
+    timestamp: new Date().toISOString(),
+    endpoints: {
+      rooms: "/rooms",
+      search: "/search-rooms?query=",
+      posts: "/posts",
+      uploadImage: "/upload-image"
+    }
+  });
 });
 
 app.get("/rooms", async (req, res) => {
@@ -126,7 +170,7 @@ app.get("/search-rooms", async (req, res) => {
   res.json({ rooms: filtered, query: search });
 });
 
-// ✅ เพิ่ม ROUTE สำหรับ UPLOAD IMAGE
+// ✅ UPLOAD IMAGE ROUTE (รองรับ Dynamic URL)
 app.post("/upload-image", upload.single("image"), async (req, res) => {
   try {
     console.log("📸 Upload image request received");
@@ -155,8 +199,8 @@ app.post("/upload-image", upload.single("image"), async (req, res) => {
       return res.status(400).json({ ok: false, error: "Room not found" });
     }
 
-    // สร้าง URL สำหรับรูปภาพ (Full URL)
-    const fileUrl = `http://10.224.109.120:4000/uploads/${req.file.filename}`;
+    // ✅ ใช้ Dynamic Base URL
+    const fileUrl = `${getBaseUrl(req)}/uploads/${req.file.filename}`;
     console.log("🖼️ Image URL:", fileUrl);
 
     // สร้าง note สำหรับรูปภาพ
@@ -196,6 +240,7 @@ app.get("/posts", async (req, res) => {
   res.json({ posts });
 });
 
+// ✅ POST /posts ใช้ Dynamic URL
 app.post("/posts", upload.single("image"), async (req, res) => {
   try {
     const { title, author, description, contactLink, category, roomId, x, y } = req.body;
@@ -204,8 +249,9 @@ app.post("/posts", upload.single("image"), async (req, res) => {
     const roomExists = db.data.rooms.some((r) => r.id === roomId);
     if (!roomExists) return res.status(400).json({ error: "Room not found" });
 
+    // ✅ ใช้ Dynamic URL แทน hardcode
     const imageUrl = req.file
-      ? `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`
+      ? `${getBaseUrl(req)}/uploads/${req.file.filename}`
       : null;
 
     const newPost = {
@@ -451,10 +497,21 @@ io.on("connection", (socket) => {
   await initDB();
   await initFixedRooms();
 
-  const PORT = 4000;
-  server.listen(PORT, "0.0.0.0", () => {
-    console.log(`🌐 Server running on http://10.224.109.120:${PORT}`);
+  const PORT = process.env.PORT || 4000;
+  const HOST = "0.0.0.0"; // รับ connection จากทุก network interface
+  const LOCAL_IP = getLocalIP();
+  
+  server.listen(PORT, HOST, () => {
+    console.log("\n🎉 =================================");
+    console.log("🌐 Server running successfully!");
+    console.log("🎉 =================================\n");
+    console.log(`📍 Local:    http://localhost:${PORT}`);
+    console.log(`📍 Network:  http://${LOCAL_IP}:${PORT}`);
     console.log(`🔌 Socket.IO ready for real-time connections`);
-    console.log(`📁 Uploads directory: ${uploadsDir}`);
+    console.log(`📁 Uploads:  ${uploadsDir}\n`);
+    console.log("💡 Tips:");
+    console.log("   - ใช้ localhost สำหรับเครื่องตัวเอง");
+    console.log(`   - ใช้ http://${LOCAL_IP}:${PORT} สำหรับเพื่อนในเครือข่ายเดียวกัน`);
+    console.log("   - ใช้ ngrok สำหรับเข้าถึงจาก Internet\n");
   });
 })();
